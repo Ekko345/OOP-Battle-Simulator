@@ -1,4 +1,5 @@
 from goblin import Goblin
+from hero import Hero
 
 
 ARENA_NAME = "The Boiling Isles"
@@ -18,8 +19,15 @@ def main():
     NewGoblin = Goblin("amity")
     
     print(f"{NewGoblin.name} enters the arena with {NewGoblin.health} health.")
-    print("But no hero has answered the call... yet.")
 
+    hero=Hero("King", 100, 20)
+    print("A hero approaches the arena...")
+    print(f"{hero.name} enters the arena with {hero.health} health and {hero.attack_power} attack power.")
 
-if __name__ == "__main__":
-    main()
+    goblin_damage = goblin.attack()
+    print(f"{goblin.name} attacks {hero.name} for {goblin_damage} damage.")
+
+    hero.take_damage(goblin_damage)
+
+    if __name__ == "__main__":
+        main()
