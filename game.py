@@ -4,6 +4,19 @@ from hero import Hero
 
 ARENA_NAME = "The Boiling Isles"
 
+def battle(hero: Hero, enemy: Goblin):
+    while hero.is_alive() and enemy.is_alive():
+        hero_damage = hero.attack()
+        enemy.take_damage(hero_damage)
+        if enemy.is_alive():
+            enemy_damage = enemy.attack()
+            hero.take_damage(enemy_damage)
+
+    if hero.is_alive():
+        print(f"{hero.name} wins!")
+    else:
+        print(f"{enemy.name} wins!")
+
 
 def main():
     """Open the arena and introduce its first opponent."""
@@ -21,13 +34,11 @@ def main():
     print(f"{NewGoblin.name} enters the arena with {NewGoblin.health} health.")
 
     hero=Hero("King", 100, 20)
+
     print("A hero approaches the arena...")
     print(f"{hero.name} enters the arena with {hero.health} health and {hero.attack_power} attack power.")
+    battle(hero, goblin)
 
-    goblin_damage = goblin.attack()
-    print(f"{goblin.name} attacks {hero.name} for {goblin_damage} damage.")
 
-    hero.take_damage(goblin_damage)
-
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
