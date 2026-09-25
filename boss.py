@@ -5,13 +5,21 @@ class Boss(Enemy):
     """A completed character class students can examine as an OOP example."""
 
     def __init__(self, name):
-        super().__init__(name, 200)
-        self.attack_power = 20
-        self.gold=0
+        super().__init__(name, health=200, attackPower=25)
 
-    def stealGold(self, hero):
-        """Return a random amount of damage."""
-        self.gold+=hero.gold
-        hero.gold=0
-        print("GET RECK NOOB")
+    def attack(self):
+        attackStyle=random.randit(1,3)
+        if attackStyle==1:
+            print("Fireball")
+            return 5*random.randit(1,3)
+        elif attackStyle==2:
+            print("Swing sword")
+            return self.attack_power
+        else:
+            print("STOMP")
+            return 2*random.randit(2,6)
+
+    def take_damage(self, damage):
+        damage=damage*.75
+        super().take_damage(damage)
 

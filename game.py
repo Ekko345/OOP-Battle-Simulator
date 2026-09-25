@@ -1,4 +1,5 @@
 from goblin import Goblin
+from boss import Boss
 
 
 ARENA_NAME = "The Boiling Isles"
@@ -18,7 +19,12 @@ def main():
     NewGoblin = Goblin("amity")
     
     print(f"{NewGoblin.name} enters the arena with {NewGoblin.health} health.")
-    print("But no hero has answered the call... yet.")
+    print("A storm is brewing")
+
+    def main():
+        boss=Boss("rick ")
+        
+
 
 
 if __name__ == "__main__":
