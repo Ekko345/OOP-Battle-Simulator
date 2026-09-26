@@ -23,7 +23,7 @@ def main():
 
     def main():
         boss=Boss("rick ")
-        
+        super().take_damage(damage)
 
 
 
